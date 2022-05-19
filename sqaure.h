@@ -13,7 +13,6 @@ public:             // Access specifier
     float f;
     float ydil;
     float frmOrigin;
-    int type;
     sf::Color colder;
     sf::VertexArray linesCenter;
     sf::VertexArray linesLeft;
@@ -40,7 +39,7 @@ public:             // Access specifier
 
 
         colder = colours;
-        ydil = (sqrt(dial * pow(f, 2) - pow(f, 2))) / 2;//this is because the size of the shape is twice of that of top left origin 
+        ydil = float((sqrt(dial * pow(f, 2) - pow(f, 2))) / 2);//this is because the size of the shape is twice of that of top left origin 
 
 
 
@@ -60,6 +59,7 @@ public:             // Access specifier
         linesLeft.append(sf::Vertex(sf::Vector2f(x + f, y + ydil), colours));
         linesLeft.append(sf::Vertex(sf::Vector2f(x, y + ydil), colours));
     }
+    ~square() {};
     void update() {
         if (frmOrigin == true) {
             linesCenter[0].position = sf::Vector2f(x - f / 2, y - ydil), colder;
